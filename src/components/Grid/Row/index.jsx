@@ -4,7 +4,7 @@ import {
   Row,
   TimeCell,
 } from './styles';
-import Cell from 'components/Cell';
+import Cell from './Cell';
 
 const RowComponent = ({ currentDate }) => {
   const renderCells = () => {

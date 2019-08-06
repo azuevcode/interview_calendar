@@ -1,7 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
 import { Grid } from './styles';
-import Row from 'components/Row';
+import Row from './Row';
 
 const GridСomponent = ({ currentWeek }) => {
   const renderRows = () => {
