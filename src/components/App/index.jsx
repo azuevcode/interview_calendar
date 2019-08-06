@@ -6,6 +6,7 @@ import { Main } from './styles';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import Grid from 'components/Grid';
 
 class App extends React.Component {
   state = {
@@ -51,48 +52,6 @@ class App extends React.Component {
     return <div style={{ display: 'flex' }}>{days}</div>;
   }
 
-  renderCells = () => {
-    const dateFormat = "HH:00";
-    const rows = [];
-    const cols = [];
-
-    let startDay = dateFns.startOfDay(new Date());
-
-
-    for (let i = 0; i < 7; i++) {
-      cols.push(
-        <div
-          style={{
-            // width: '40px',
-            height: '60px',
-            flex: '1',
-            borderRight: i !== 6 ? '1px solid #e5e5e5' : '',
-            // borderBottom: '1px solid rgba(0, 0, 0, .1)',
-            // borderLeft: i !== 0 ? '1px solid rgba(0, 0, 0, .1)' : '',
-          }}
-        />
-      );
-    }
-
-    for (let i = 0; i < 12; i++) {
-      rows.push(
-        <div style={{ display: 'flex', borderBottom: i !== 11 ? '1px solid #e5e5e5' : ''}}>
-          <div style={{
-            width: '80px',
-            textAlign: 'center',
-            color: '#999999',
-            transform: 'translateY(-50%)',
-            alignSelf: 'baseline',
-            backgroundColor: '#fff',
-          }}>{i !== 0 ? dateFns.format(dateFns.addHours(startDay, i), dateFormat) : ''}</div>
-          {cols}
-        </div>
-      );
-    }
-
-    return <div>{rows}</div>;
-  }
-
   nextWeek = () => {
     this.setState({
       currentWeek: dateFns.addWeeks(this.state.currentWeek, 1)
@@ -123,9 +82,7 @@ class App extends React.Component {
             {this.renderHeader()}
           </div>
         </div>
-        <div>
-          {this.renderCells()}
-        </div>
+        <Grid currentWeek={this.state.currentWeek}/>
         <Footer />
       </Main>
     );
