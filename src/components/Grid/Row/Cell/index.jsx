@@ -1,10 +1,10 @@
 import React from 'react';
-import { Cell } from './styles';
+import { Cell, Event } from './styles';
 
-const CellComponent = () => {
+const CellComponent = ({ children }) => {
   return (
     <Cell>
-
+      {children}
     </Cell>
   );
 };

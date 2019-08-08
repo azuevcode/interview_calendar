@@ -9,7 +9,12 @@ const GridСomponent = ({ currentWeek }) => {
     const startWeek = dateFns.startOfWeek(currentWeek);
 
     for (let i = 0; i < 12; i++) {
-      rows.push(<Row currentDate={dateFns.addHours(startWeek, i)} />);
+      rows.push(
+        <Row
+          currentDate={dateFns.addHours(startWeek, i)}
+          // onEventSelect={}
+        />
+      );
     }
     return rows;
   };
